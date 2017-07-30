@@ -296,17 +296,25 @@
 
               <div class="row" ng-if="results.dataService.quizQuestions[results.activeQuestion].type === 'image'">
                 <div class="col-sm-6" ng-repeat="answer in results.dataService.quizQuestions[results.activeQuestion].possibilities">
-                  <h4
+                  <div
                     class="image-answer"
                     ng-class="results.getAnswerClass($index)"
                   >
                     <img ng-src="{{answer.answer}}" />
-                  </h4>
+                  </div>
                 </div>
               </div><!-- Answers area -->
+
             </div>
           </div>
         </div>
+
+        <button
+          class="btn btn-primary bt-lg"
+          ng-click="results.reset()"
+        >
+          Go Back to Facts
+        </button>
       </div><!-- Questions area -->
     </div><!-- Results Controller -->
   </div>

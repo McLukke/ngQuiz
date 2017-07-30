@@ -14,6 +14,7 @@
     vm.getAnswerClass = getAnswerClass;
     vm.setActiveQuestion = setActiveQuestion;
     vm.calculatePerc = calculatePerc;
+    vm.reset = reset;
 
     function getAnswerClass(index) {
       if (index === quizMetrics.correctAnswers[vm.activeQuestion]) {
@@ -23,12 +24,24 @@
       }
     }
 
-    function setAnswerClass(index) {
+    function setActiveQuestion(index) {
       vm.activeQuestion = index;
     }
 
     function calculatePerc() {
       return quizMetrics.numCorrect / dataService.quizQuestions.length * 100;
+    }
+
+    function reset() {
+      quizMetrics.toggleQuiz('results', false);
+      quizMetrics.numCorrect = 0;
+
+      for(var i = 0; i < dataService.quizQuestions.length; i++) {
+        var data = dataService.quizQuestions[i];
+
+        data.seelcted = null;
+        data.correct = null;
+      }
     }
   }
 })();
