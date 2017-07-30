@@ -3,9 +3,13 @@
     .module("turtleFacts")
     .controller("quizController", QuizController);
 
-  function QuizController() {
+  QuizController.$inject = ['quizMetrics'];
+
+  function QuizController(quizMetrics) {
     var vm = this;
 
-    
+    vm.quizMetrics = quizMetrics;
   }
+
+
 })()
