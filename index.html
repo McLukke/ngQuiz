@@ -23,16 +23,21 @@
       </h3>
     </div>
 
-    <div ng-controller="listController as list">
+    <div ng-controller="listController as list" ng-hide="list.quizActive">
       <form class="form-inline well well-sm clearfix">
-        <span class="glyphicon glyphicon-search">
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Search..."
-            ng-model="list.search"
-          />
-        </span>
+        <span class="glyphicon glyphicon-search" />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Search..."
+          ng-model="list.search"
+        />
+        <button
+          class="btn btn-warning pull-right"
+          ng-click="list.activateQuiz()"
+        >
+          <strong>Start Quiz</strong>
+        </button>
       </form>
 
       <div class="row">
