@@ -13,6 +13,7 @@
     vm.activeQuestion = 0;
     vm.questionAnswered = questionAnswered;
     vm.setActiveQuestion = setActiveQuestion;
+    vm.selectAnswer = selectAnswer;
 
     var numQuestionsAnswered = 0;
 
@@ -45,6 +46,10 @@
           breakOut = true;
         }
       }
+    }
+
+    function selectAnswer(index) {
+      dataService.quizQuestions[vm.activeQuestion].selected = index;
     }
   }
 })();
