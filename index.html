@@ -263,6 +263,13 @@
       </div><!-- Legend area -->
 
       <div class="row">
+        <div class="col-xs-12 top-buffer">
+          <h2>You Scored {{ results.quizMetrics.numCorrect }} / {{ results.dataService.quizQuestions.length }}</h2>
+          <h2><strong>{{ results.calculatePerc() | number: 2 }}%</strong></h2>
+        </div>
+      </div><!-- Score area -->
+
+      <div class="row">
         <h3>Question:</h3>
         <div class="well well-sm">
           <div class="row">
@@ -289,7 +296,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- Questions area -->
     </div><!-- Results Controller -->
   </div>
 
