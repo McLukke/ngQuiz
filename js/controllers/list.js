@@ -14,6 +14,8 @@
     function changeActiveTurtle(index) {
       vm.activeTurtle = index;
     }
+
+    vm.search = "";
   }
 
   var turtlesData = [
