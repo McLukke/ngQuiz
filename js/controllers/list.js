@@ -20,7 +20,7 @@
     }
 
     function activateQuiz() {
-      quizMetrics.toggleQuiz(true);
+      quizMetrics.toggleQuiz('quiz', true);
     }
   }
 })();
