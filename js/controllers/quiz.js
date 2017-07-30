@@ -30,21 +30,25 @@
       vm.setActiveQuestion();
     }
 
-    function setActiveQuestion() {
-      var breakOut = false;
-      var quizLength = dataService.quizQuestions.length - 1;
+    function setActiveQuestion(index) {
+      if (index === undefined) {
+        var breakOut = false;
+        var quizLength = dataService.quizQuestions.length - 1;
 
-      while(!breakOut) {
-        if (vm.activeQuestion < quizLength) {
-          vm.activeQuestion = ++vm.activeQuestion;
-        } else {
-          vm.activeQuestion = 0;
-        }
-        console.log('vm.activeQuestion: ', vm.activeQuestion);
+        while(!breakOut) {
+          if (vm.activeQuestion < quizLength) {
+            vm.activeQuestion = ++vm.activeQuestion;
+          } else {
+            vm.activeQuestion = 0;
+          }
+          console.log('vm.activeQuestion: ', vm.activeQuestion);
 
-        if (dataService.quizQuestions[vm.activeQuestion].selected === null) {
-          breakOut = true;
+          if (dataService.quizQuestions[vm.activeQuestion].selected === null) {
+            breakOut = true;
+          }
         }
+      } else {
+        vm.activeQuestion = index;
       }
     }
 

@@ -124,6 +124,7 @@
                 'btn-info': question.selected !== null,
                 'btn-danger': question.selected === null,
               }"
+              ng-click="quiz.setActiveQuestion($index)"
             >
               <span
                 class="glyphicon"
@@ -178,7 +179,11 @@
 
               <div class="row" ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'image'">
                 <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
-                  <div class="image-answer">
+                  <div
+                    class="image-answer"
+                    ng-class="{'image-selected': $index === quiz.dataService.quizQuestions[quiz.activeQuestion].selected}"
+                    ng-click="quiz.selectAnswer($index)"
+                  >
                     <img ng-src="{{answer.answer}}" />
                   </div>
                 </div>
