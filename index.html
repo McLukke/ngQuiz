@@ -158,8 +158,14 @@
       </div><!-- Progress area -->
 
       <div class="row">
-        <h3>Question:</h3>
+        <div class="alert alert-danger" ng-show="quiz.error">
+          Error! You have not answered all the questions
+          <buton class="close" ng-click="quiz.error = false">
+            &times
+          </button>
+        </div>
 
+        <h3>Question:</h3>
         <div class="well well-sm">
           <div class="row">
             <div class="col-xs-12">
@@ -188,6 +194,7 @@
                   </div>
                 </div>
               </div>
+
 
             </div>
           </div>

@@ -14,6 +14,8 @@
     vm.questionAnswered = questionAnswered;
     vm.setActiveQuestion = setActiveQuestion;
     vm.selectAnswer = selectAnswer;
+    vm.error = false;
+    vm.finalize = false;
 
     var numQuestionsAnswered = 0;
 
@@ -24,6 +26,16 @@
         numQuestionsAnswered++;
         if (numQuestionsAnswered >= quizLength) {
           // finalize quiz
+          for(var i = 0; i<quizLength; i++) {
+            if (dataService.quizQuestions[i].selected === null) {
+              setActiveQuestion(i);
+              return;
+            }
+          }
+
+          vm.error = false;
+          vm.finalize = true;
+          return;
         }
       }
 
@@ -40,8 +52,8 @@
             vm.activeQuestion = ++vm.activeQuestion;
           } else {
             vm.activeQuestion = 0;
+            vm.error = true;
           }
-          console.log('vm.activeQuestion: ', vm.activeQuestion);
 
           if (dataService.quizQuestions[vm.activeQuestion].selected === null) {
             breakOut = true;
